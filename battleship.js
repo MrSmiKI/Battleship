@@ -30,9 +30,9 @@ let model = {
     },
 
     fire(guess){
-        for (let i = 0; i < this.numShips; i++){     // <-- исправлено на 0
+        for (let i = 0; i < this.numShips; i++){     
             let ship = this.ships[i];
-            let locations = ship.locations;          // <-- исправлено
+            let locations = ship.locations;          
 
             let index = locations.indexOf(guess);
             if (index >= 0){
@@ -55,7 +55,7 @@ let model = {
 };
 
 window.onload = function() {
-    model.fire("53"); // проверка
+    model.fire("53"); 
     model.fire("10");
     model.fire("11");
     model.fire("12");
