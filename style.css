@@ -42,11 +42,11 @@ form input {
 }
 
 .hit{
-    background: url("tamplates/ship.png") no-repeat center center;
+    background: url("templates/ship.png") no-repeat center center;
     background-size: 50%;
 }
 
 .miss{
-    background: url("tamplates/miss.png") no-repeat center center;
+    background: url("templates/miss.png") no-repeat center center;
     background-size: 50%;
 }
