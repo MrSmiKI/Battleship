@@ -54,11 +54,54 @@ let model = {
     }
 };
 
+let controller = {
+    guesses: 0,
+
+    processGuess(guess){
+        let location = parseGuess(guess);
+        if(location){
+            this.guesses++;
+            let hit = model.fire(location);
+            if(hit && model.shipsSunk == model.numShips){
+                view.displayMessage(`You snak all my battleship, in ${this.guesses} guesses`);
+            }
+        }
+    }
+}
+
+function parseGuess(guess){
+    const alphabet = ["A", "B", "C", "D", "E"];
+
+    if(guess == null || guess.length !=2){
+        alert("Oop, please enter a letter and a nu,ber on the board");
+    }else{
+        let firtChar = guess.charAt(0);
+        let row = alphabet.indexOf(firtChar);
+        let column = guess.charAt(1);
+
+        if(isNaN(column)){
+            alert("Oops, that ins't on the board.");
+        }else if(row < 0 || row >= model.boardSize || 
+            column < 0 || column >= model.boardSize){
+                alert("Oops, that's off the board");
+        }else {
+            return row + column;
+        }
+    }
+    return null;
+}
+
 window.onload = function() {
+    console.log(parseGuess("A0"));
+    console.log(parseGuess("B2"));
+    console.log(parseGuess("A7"));
     model.fire("53"); 
     model.fire("10");
     model.fire("11");
     model.fire("12");
-    
+    model.fire("34");
+    model.fire("44");
+    model.fire("54");
+    model.fire("24");
 
 };
